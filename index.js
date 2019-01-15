@@ -56,8 +56,8 @@ bot.on('message', msg => {
                             + '4 - ' + results[3].title + '\n'
                             + '5 - ' + results[4].title)
           
-          // collects responses only from the original user for 10 seconds, need to fix so can only respond once to the above
-          const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, { time: 10000 });
+          // collects a response only from the original user for 10 seconds
+          const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, { time: 10000, maxMatches: 1 });
           collector.on('collect', message => {
               switch (message.content) {
                 case '1':
