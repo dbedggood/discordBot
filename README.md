@@ -1,5 +1,4 @@
 # Waery Discord Bot
-___
 
 ## Setup
 
@@ -10,7 +9,6 @@ In the terminal run `npm i` to install dependencies.
 Then run either:
 * `npm run start` to start the bot regularly
 * `npm run dev` to start the bot with nodemon
-___
 
 ## Current Features
 
@@ -22,6 +20,5 @@ A user can trigger a youtube video search by beginning their search with `yt`, t
 
 **More coming, suggestions welcome!**
 
-___
 
 ![Waery Emoji Icon](resources/waery.png "Waery Emoji Icon")
