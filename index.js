@@ -8,29 +8,24 @@ const bot = new Discord.Client()
 
 bot.login(process.env.BOT_TOKEN)
 
-bot.on('ready', () => {
-  console.log(`Logged in as ${bot.user.tag}!`)
-})
+bot.on('ready', () => { console.log(`Logged in as ${bot.user.tag}!`) })
 
-// bot.on('typingStart', (channel) => {
-//   channel.send("shut up")
-// })
-// bot.on('typingStop', (channel) => {
-//   channel.send("good <:waery:534517623115874315>")
-// })
 
 bot.on('message', msg => {
-  // console.log(msg.content)
 
+  // to prevent the bot from talking to itself
   if (!msg.author.bot) {
 
+    // dad joke feature
     if (msg.content.match(/i'm/i)) {
-      msg.channel.send("Hi " + msg.content.split(/i'm /i)[1] + ", I'm waery <:waery:534517623115874315>");
+      msg.channel.send("Hi " + msg.content.split(/i'm /i)[1] + ", I'm waery! 😎");
     } else if (msg.content.match(/i am/i)) {
-      msg.channel.send("Hi " + msg.content.split(/i am /i)[1] + ", I'm waery <:waery:534517623115874315>");
+      msg.channel.send("Hi " + msg.content.split(/i am /i)[1] + ", I'm waery! 😎");
     }
-
+    
     if (msg.content.match(/yt/i)) {
+      
+      // everything after yt is the search string, limited to 5 results to avoid clutter
       youtube.searchVideos(msg.content.split(/yt /i)[1], 5)
         .then(results => {
           msg.channel.send('Reply with 1-5 to choose a video: \n'
@@ -40,6 +35,7 @@ bot.on('message', msg => {
                             + '4 - ' + results[3].title + '\n'
                             + '5 - ' + results[4].title)
           
+          // collects responses only from the original user for 10 seconds, need to fix so can only respond once to the above
           const collector = new Discord.MessageCollector(msg.channel, m => m.author.id === msg.author.id, { time: 10000 });
           collector.on('collect', message => {
               switch (message.content) {
