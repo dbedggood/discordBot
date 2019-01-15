@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const Youtube = require('simple-youtube-api')
 const Discord = require('discord.js')
+const request = require('request');
 
 const youtube = new Youtube(process.env.GOOGLE_API_KEY)
 const bot = new Discord.Client()
@@ -10,19 +11,39 @@ bot.login(process.env.BOT_TOKEN)
 
 bot.on('ready', () => { console.log(`Logged in as ${bot.user.tag}!`) })
 
-
 bot.on('message', msg => {
 
   // to prevent the bot from talking to itself
   if (!msg.author.bot) {
 
     // dad joke feature
+    if (msg.content.match(/joke/i)) {
+      const options = {
+        url: 'https://icanhazdadjoke.com',
+        headers: {
+          'Accept': 'application/json'
+        }
+      };
+      
+      function callback(error, response, body) {
+        if (!error && response.statusCode == 200) {
+          const content = JSON.parse(body);
+          msg.channel.send(content.joke)
+        }
+      }
+      
+      request(options, callback);
+
+    }
+
+    // dad joke feature pt2
     if (msg.content.match(/i'm/i)) {
-      msg.channel.send("Hi " + msg.content.split(/i'm /i)[1] + ", I'm waery! 😎");
+      msg.channel.send("Hi " + msg.content.split(/i'm /i)[1] + ", I'm waery! 😎")
     } else if (msg.content.match(/i am/i)) {
-      msg.channel.send("Hi " + msg.content.split(/i am /i)[1] + ", I'm waery! 😎");
+      msg.channel.send("Hi " + msg.content.split(/i am /i)[1] + ", I'm waery! 😎")
     }
     
+    // youtube search
     if (msg.content.match(/yt/i)) {
       
       // everything after yt is the search string, limited to 5 results to avoid clutter
