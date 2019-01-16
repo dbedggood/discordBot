@@ -18,6 +18,10 @@ bot.on('message', msg => {
   if (!msg.author.bot) {
     if (msg.content.startsWith(prefix)) {
 
+      if (msg.content.startsWith(prefix + "help")) {
+        msg.channel.send("Current commands include: \n yt - lets you search youtube videos to add to the chat \n joke - tells you a random dad joke")
+      }
+
       // dad joke feature
       if (msg.content.startsWith(prefix + "joke")) {
         const options = {
