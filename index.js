@@ -6,7 +6,7 @@ const request = require('request');
 
 const youtube = new Youtube(process.env.GOOGLE_API_KEY)
 const bot = new Discord.Client()
-const prefix = ",";
+const prefix = ',';
 
 bot.login(process.env.BOT_TOKEN)
 
@@ -18,12 +18,16 @@ bot.on('message', msg => {
   if (!msg.author.bot) {
     if (msg.content.startsWith(prefix)) {
 
-      if (msg.content.startsWith(prefix + "help")) {
-        msg.channel.send("Current commands include: \n yt - lets you search youtube videos to add to the chat \n joke - tells you a random dad joke")
+      if (msg.content.startsWith(prefix + 'help')) {
+        msg.channel.send('Current commands include: \n'
+                          + 'yt - lets you search youtube videos to add to the chat \n' 
+                          + 'joke - tells you a random dad joke'
+                          + '*Remember to start your commands with `' + prefix + '`*'
+        )
       }
 
       // dad joke feature
-      if (msg.content.startsWith(prefix + "joke")) {
+      if (msg.content.startsWith(prefix + 'joke')) {
         const options = {
           url: 'https://icanhazdadjoke.com',
           headers: {
@@ -43,7 +47,7 @@ bot.on('message', msg => {
       }
 
       // youtube search
-      if (msg.content.startsWith(prefix + "yt")) {
+      if (msg.content.startsWith(prefix + 'yt')) {
         
         // everything after yt is the search string, limited to 5 results to avoid clutter
         youtube.searchVideos(msg.content.split(/yt /i)[1], 5)
@@ -86,9 +90,9 @@ bot.on('message', msg => {
     // dad joke feature pt2
     if (Math.random() >= 0.8) {
       if (msg.content.match(/i'm/i)) {
-        msg.channel.send("Hi " + msg.content.split(/i'm /i)[1] + ", I'm waery! 😎")
+        msg.channel.send("Hi " + msg.content.split(/i'm /i)[1] + ', I\'m waery! 😎')
       } else if (msg.content.match(/i am/i)) {
-        msg.channel.send("Hi " + msg.content.split(/i am /i)[1] + ", I'm waery! 😎")
+        msg.channel.send("Hi " + msg.content.split(/i am /i)[1] + ', I\'m waery! 😎')
       }
     }
     
