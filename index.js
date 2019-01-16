@@ -20,9 +20,9 @@ bot.on('message', msg => {
 
       if (msg.content.startsWith(prefix + 'help')) {
         msg.channel.send('Current commands include: \n'
-                          + 'yt - lets you search youtube videos to add to the chat \n' 
-                          + 'joke - tells you a random dad joke \n'
-                          + '*Remember to start your commands with `' + prefix + '`*'
+                          + '\t yt - lets you search youtube videos to add to the chat \n' 
+                          + '\t joke - tells you a random dad joke \n\n'
+                          + '**Remember to start your commands with `' + prefix + '`!**'
         )
       }
 
