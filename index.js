@@ -10,7 +10,10 @@ const prefix = ',';
 
 bot.login(process.env.BOT_TOKEN)
 
-bot.on('ready', () => { console.log(`Logged in as ${bot.user.tag}!`) })
+bot.on('ready', () => {
+  console.log(`Logged in as ${bot.user.tag}!`)
+  bot.user.setActivity('everyone very closely... type ,help for help!', { type: 'WATCHING'})
+})
 
 bot.on('message', msg => {
 
@@ -22,7 +25,7 @@ bot.on('message', msg => {
         msg.channel.send('Current commands include: \n'
                           + '\t yt - lets you search youtube videos to add to the chat \n' 
                           + '\t joke - tells you a random dad joke \n\n'
-                          + '**Remember to start your commands with `' + prefix + '`!**'
+                          + '**Remember to start your commands with** `' + prefix + '`'
         )
       }
 
@@ -88,7 +91,7 @@ bot.on('message', msg => {
     }
 
     // dad joke feature pt2
-    if (Math.random() >= 0.8) {
+    if (Math.random() >= 0.9) {
       if (msg.content.match(/i'm/i)) {
         msg.channel.send("Hi " + msg.content.split(/i'm /i)[1] + ', I\'m waery! 😎')
       } else if (msg.content.match(/i am/i)) {
