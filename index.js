@@ -30,6 +30,10 @@ bot.on('message', msg => {
         )
       }
 
+      if (msg.content.startsWith(prefix + 'bust')) {
+        msg.channel.send('stalks busted')
+      }
+
       // dad joke feature
       if (msg.content.startsWith(prefix + 'joke')) {
         const options = {
