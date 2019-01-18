@@ -23,9 +23,10 @@ bot.on('message', msg => {
 
       if (msg.content.startsWith(prefix + 'help')) {
         msg.channel.send('Current commands include: \n'
-                          + '\t yt - lets you search youtube videos to add to the chat \n' 
-                          + '\t joke - tells you a random dad joke \n\n'
-                          + '**Remember to start your commands with** `' + prefix + '`'
+                          + '\t `yt` or - lets you search youtube videos to add to the chat \n'
+                          + '\t `joke` - tells you a random dad joke \n'
+                          + '\t `weather` - shows you the current weather for a city \n\n' 
+                          + '*Remember to start your commands with* `' + prefix + '`'
         )
       }
 
@@ -88,6 +89,35 @@ bot.on('message', msg => {
           })
           .catch(console.log);
       }
+
+      // weather
+      if (msg.content.startsWith(prefix + 'weather')) {
+        
+        const city = msg.content.split(/weather /i)[1]
+
+        const options = {
+          url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=' +  process.env.WEATHER_API_KEY,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }
+        
+        function callback(error, response, body) {
+          if (!error && response.statusCode == 200) {
+            const content = JSON.parse(body)
+            msg.channel.send(content.name + ': \n' 
+                              + '\t Weather: ' + content.weather[0].main + '\n'
+                              + '\t Temperature: ' + content.main.temp + '°C')
+          }
+
+          else {
+            msg.channel.send('City not found!')
+          }
+        }
+        
+        request(options, callback)
+  
+        }
     }
 
     // dad joke feature pt2
