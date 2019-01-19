@@ -25,6 +25,7 @@ bot.on('message', msg => {
         msg.channel.send('Current commands include: \n'
                           + '\t `yt` or - lets you search youtube videos to add to the chat \n'
                           + '\t `joke` - tells you a random dad joke \n'
+                          + '\t `xkcd` - retrieves the latest xkcd comic \n'
                           + '\t `weather` - shows you the current weather for a city \n\n' 
                           + '*Remember to start your commands with* `' + prefix + '`'
         )
@@ -121,7 +122,29 @@ bot.on('message', msg => {
         
         request(options, callback)
   
+      }
+
+      // xkcd
+      if (msg.content.startsWith(prefix + 'xkcd')) {
+
+        const options = {
+          url: 'https://xkcd.com/info.0.json',
+          headers: {
+            'Accept': 'application/json'
+          }
         }
+        
+        function callback(error, response, body) {
+          if (!error && response.statusCode == 200) {
+            const content = JSON.parse(body)
+            msg.channel.send(content.img)
+          }
+        }
+        
+        request(options, callback)
+  
+      }
+
     }
 
     // dad joke feature pt2

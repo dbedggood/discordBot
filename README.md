@@ -22,6 +22,9 @@ Also if a user mentions any variation of the words `I am` or `I'm`, the bot will
 **Weather:**
 When using the command `weather` with a city name, the bot will return the current weather and temperature for the given city.
 
+**XKCD:**
+`xkcd` retrieves the latest xkcd comic for the chat!
+
 **More coming, suggestions welcome!**
 
 
