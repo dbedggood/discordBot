@@ -2,8 +2,7 @@
 
 ## Setup
 
-Make sure there is a `.env` file with `BOT_TOKEN=YOUR_TOKEN_HERE` and `GOOGLE_API_KEY=YOUR_API_KEY_HERE`
-
+Make sure there is a `.env` file with appropriate API keys.
 In the terminal run `npm i` to install dependencies.
 
 Then run either:
