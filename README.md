@@ -24,7 +24,7 @@ When using the command `weather` with a city name, the bot will return the curre
 **XKCD:**
 `xkcd` retrieves a random xkcd comic and posts it in the chat.
 
-**More coming, suggestions welcome!**
+*More coming, suggestions welcome!*
 
 
 ![Waery Emoji Icon](resources/waery.png "Waery Emoji Icon")
