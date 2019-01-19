@@ -25,7 +25,7 @@ bot.on('message', msg => {
         msg.channel.send('Current commands include: \n'
                           + '\t `yt` or - lets you search youtube videos to add to the chat \n'
                           + '\t `joke` - tells you a random dad joke \n'
-                          + '\t `xkcd` - retrieves the latest xkcd comic \n'
+                          + '\t `xkcd` - retrieves a random xkcd comic \n'
                           + '\t `weather` - shows you the current weather for a city \n\n' 
                           + '*Remember to start your commands with* `' + prefix + '`'
         )
@@ -137,7 +137,24 @@ bot.on('message', msg => {
         function callback(error, response, body) {
           if (!error && response.statusCode == 200) {
             const content = JSON.parse(body)
-            msg.channel.send(content.img)
+
+            const max = Math.floor(content.num) + 1
+            const comicNum = Math.floor(Math.random() * max)
+
+            const options = {
+              url: 'https://xkcd.com/' + comicNum + '/info.0.json',
+              headers: {
+                'Accept': 'application/json'
+              }
+            }
+
+            request(options, (error, response, body) => {
+              if (!error && response.statusCode == 200) {
+                const content = JSON.parse(body)
+                msg.channel.send(content.img)
+              }
+            })
+
           }
         }
         
