@@ -109,7 +109,7 @@ bot.on('message', msg => {
         function callback(error, response, body) {
           if (!error && response.statusCode == 200) {
             const content = JSON.parse(body)
-            msg.channel.send(content.name + ': \n' 
+            msg.channel.send(content.name + ', ' + content.sys.country + ': \n' 
                               + '\t Weather: ' + content.weather[0].main + '\n'
                               + '\t Temperature: ' + content.main.temp + '°C')
           }
