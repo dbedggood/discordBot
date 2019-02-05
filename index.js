@@ -19,7 +19,8 @@ bot.on('message', msg => {
 
   // to prevent the bot from talking to itself or other bots
   if (!msg.author.bot) {
-    if (msg.content.startsWith(prefix)) {
+    
+    
 
       if (msg.content.startsWith(prefix + 'help')) {
         msg.channel.send('Current commands include: \n'
@@ -162,7 +163,7 @@ bot.on('message', msg => {
   
       }
 
-    }
+    
 
     // dad joke feature pt2
     if (Math.random() >= 0.9) {
