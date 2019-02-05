@@ -5,7 +5,7 @@ const Discord = require('discord.js')
 const request = require('request');
 
 const youtube = new Youtube(process.env.GOOGLE_API_KEY)
-const bot = new Discord.Client()
+const bot = new Discord.Client({disableEveryone: true})
 const prefix = ',';
 
 bot.login(process.env.BOT_TOKEN)
