@@ -11,6 +11,16 @@ Then run either:
 
 ## Current Features
 
+**Play Music**
+When a user is in a voice channel, they can use the `play` command with a youtube video link to listen to the audio. 
+
+This feature is a work in progress, I am planning to add:
+* A queue system for more than one song
+* Support to queue a whole playlist
+* Subcommands to control what is playing
+
+I may also merge this command with the youtube search one so users do not need the youtube video url to play what they want.
+
 **Youtube Search:**
 A user can trigger a youtube video search by beginning their search with `yt`, the bot will take whatever comes after it and retrieve 5 matching videos to select from. The user can then reply with a number between 1-5 for a video URL in the chat.
 
