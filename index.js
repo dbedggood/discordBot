@@ -62,6 +62,9 @@ bot.on('message', async msg => {
 
     dispatcher.setVolumeLogarithmic(1/2)
 
+  } else if (msg.content.startsWith(prefix + 'stop')) {
+    if (!msg.member.voiceChannel) {return msg.channel.send('You are not in the voice channel.')}
+    msg.member.voiceChannel.leave()
   }
 
   // help text
