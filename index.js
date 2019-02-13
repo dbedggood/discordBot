@@ -8,6 +8,7 @@ const dad = require('./functions/dad.js')
 const help = require('./functions/help.js')
 const joke = require('./functions/joke.js')
 const music = require('./functions/music.js')
+const roast = require('./functions/roast.js')
 const xkcd = require('./functions/xkcd.js')
 const weather = require('./functions/weather.js')
 const video = require('./functions/video.js')
@@ -57,6 +58,11 @@ bot.on('message', async (msg) => {
   // random joke feature
   if (msg.content.startsWith(prefix + 'joke')) {
     joke.random(msg)
+  }
+
+  // roast
+  if (msg.content.startsWith(prefix + 'roast')) {
+    roast.random(msg)
   }
 
   // youtube search
