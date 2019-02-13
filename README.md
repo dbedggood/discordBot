@@ -28,6 +28,9 @@ A user can trigger a youtube video search by beginning their search with `yt`, t
 When a user mentions the work `joke`, the bot tells a random dad joke from icanhazdadjoke.com
 Also if a user mentions any variation of the words `I am` or `I'm`, the bot will reply accordingly.
 
+**Roasts:**
+The `roast` command will trigger the bot to reply with a randomised insult.
+
 **Weather:**
 When using the command `weather` with a city name, the bot will return the current weather and temperature for the given city.
 
