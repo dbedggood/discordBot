@@ -12,12 +12,11 @@ Then run either:
 ## Current Features
 
 **Play Music**
-When a user is in a voice channel, they can use the `play` command with a youtube video link to listen to the audio. 
+When a user is in a voice channel, they can use the `play` command with a youtube video link to listen to the audio. Use `skip` to skip songs and `stop` to  kick the bot from the voice channel.
 
 This feature is a work in progress, I am planning to add:
-* A queue system for more than one song
+* More controls
 * Support to queue a whole playlist
-* Subcommands to control what is playing
 
 I may also merge this command with the youtube search one so users do not need the youtube video url to play what they want.
 

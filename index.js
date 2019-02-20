@@ -38,9 +38,11 @@ bot.on('message', async (msg) => {
     return
   }
 
-  // play and stop music
+  // control music
   if (msg.content.startsWith(prefix + 'play')) {
     music.play(msg)
+  } else if (msg.content.startsWith(prefix + 'skip')) {
+    music.skip(msg)
   } else if (msg.content.startsWith(prefix + 'stop')) {
     music.stop(msg)
   }
