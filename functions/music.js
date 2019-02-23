@@ -21,7 +21,7 @@ function start(msg, song) {
       console.log(error)
     })
 
-  dispatcher.setVolumeLogarithmic(1 / 2)
+  dispatcher.setVolumeLogarithmic(2 / 5)
   return msg.channel.send(song.title + ' is now playing.')
 
 }
