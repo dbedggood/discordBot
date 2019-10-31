@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Daniel Bedggood",
   "license": "ISC",
+  "engines": {
+    "node": "10.15.3"
+  },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
