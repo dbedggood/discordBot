@@ -7,6 +7,7 @@ const prefix = ','
 const dad = require('./functions/dad.js')
 const help = require('./functions/help.js')
 const joke = require('./functions/joke.js')
+const roll = require('./functions/roll.js')
 const music = require('./functions/music.js')
 const roast = require('./functions/roast.js')
 const xkcd = require('./functions/xkcd.js')
@@ -22,7 +23,7 @@ bot.on('ready', () => {
   })
 })
 
-bot.on('message', async (msg) => {
+bot.on('message', async msg => {
   // to prevent the bot from talking to itself or other bots
   if (msg.author.bot) {
     return
@@ -36,6 +37,11 @@ bot.on('message', async (msg) => {
   // ignore if message does not start with the prefix
   if (!msg.content.startsWith(prefix)) {
     return
+  }
+
+  // roll a random number
+  if (msg.content.startsWith(prefix + 'roll')) {
+    roll.random(msg)
   }
 
   // control music
